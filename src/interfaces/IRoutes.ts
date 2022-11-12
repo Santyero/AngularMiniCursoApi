@@ -1,7 +1,7 @@
 import { Router } from "express";
 
 interface IRoute {
-  iniciarRotas(): Router;
+  getRouterPadrao(): Router;
 }
 
 export default IRoute;

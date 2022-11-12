@@ -7,7 +7,7 @@ class Cliente extends Model {
   public doc_federal?: string;
   public dt_nascimento?: Date;
 }
-
+// Responsavel por inicializar o model e criar a tabela no banco de dados
 Cliente.init(
   {
     nome: {

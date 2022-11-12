@@ -1,6 +1,12 @@
 import IController from "../interfaces/IController";
 import Cliente from "../models/Cliente";
 
+/*
+ * Classe responsável por controlar as requisições
+ * referentes a entidade Cliente
+ * Com as implementações da interface IController
+ * Com as funções do models cliente
+ */
 export default class ClienteController implements IController<Cliente> {
   async criar(cliente: Cliente) {
     const clienteCriado = await Cliente.create({ ...cliente });

@@ -4,23 +4,25 @@ import express from "express";
 import connection from "./connection";
 import Routes from "./routes";
 
-const app = express();
+const app = express(); // Cria uma instância do express
 
-const porta = 3000;
+const porta = 3000; // Referencia a porta que o servidor irá rodar
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  // Rota raiz
+  res.send("Hello World!"); // Retorno da informação para o cliente
 });
 
-app.use(express.json());
+app.use(express.json()); // Configura o express para receber JSON
 
 app.listen(porta, () => {
-  connection.authenticate();
-  connection.sync();
+  // Inicia o servidor na porta definida
+  connection.authenticate(); // Conecta ao banco de dados
+  connection.sync(); // Sincroniza o banco de dados
 
-  const routes = new Routes();
+  const routes = new Routes(); // Cria uma instância das rotas
 
-  routes.iniciarRotas(app);
+  routes.iniciarRotas(app); // Inicia as rotas
 
   console.log(`Example app listening on port ${porta}`);
 });
