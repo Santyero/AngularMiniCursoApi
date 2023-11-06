@@ -13,7 +13,14 @@ export default class PessoaFisicaController implements IController<PessoaFisica>
     }
 
     async listarTodos(): Promise<PessoaFisica[]> {
-        return await PessoaFisica.findAll();
+        try {
+            const aa = await PessoaFisica.findAll();
+            console.log('busco isso aqui', aa);
+            return aa;   
+        } catch (error) {
+            console.log('erro', error);
+            return [];
+        }
     }
 
     async alterar(id: number, pessoaFisica: PessoaFisica): Promise<void> {

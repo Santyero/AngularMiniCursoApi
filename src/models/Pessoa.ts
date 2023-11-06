@@ -20,9 +20,6 @@ Pessoa.init(
         telefone: {
             type: DataTypes.STRING,
         },
-        nome: {
-            type: DataTypes.STRING,
-        },
         createdAt: {
             type: DataTypes.DATE,
             defaultValue: DataTypes.NOW,
