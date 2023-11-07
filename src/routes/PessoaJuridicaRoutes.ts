@@ -33,6 +33,7 @@ export default class PessoaJuridicaRoutes extends GenericRoute<PessoaJuridica> {
     ): Promise<void> {
         const id = Number(req.params.id); // Pega o id do cliente a ser deletado
         await this.pessoaJuridicaController.deletar(id); // Chama o método deletar do controller
+        res.status(200).send()
     }
 
     // Método para atualizar uma pessoa juridica pelo id
@@ -42,6 +43,7 @@ export default class PessoaJuridicaRoutes extends GenericRoute<PessoaJuridica> {
     ): Promise<void> {
         const pessoaJuridica = req.body; // Pega a pessoa juridica do corpo da requisição
         const id = Number(req.params.id); // Pega o id da pessoa juridica a ser atualizado
-        await this.pessoaJuridicaController.atualizar(id, pessoaJuridica); // Chama o método atualizar do controller
+        await this.pessoaJuridicaController.atualizar(id, pessoaJuridica); // Chama o método atualizar do controller]
+        res.status(200).send()
     }
 }
