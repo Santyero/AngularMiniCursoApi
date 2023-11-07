@@ -18,7 +18,7 @@ app.use(express.json()); // Configura o express para receber JSON
 app.listen(porta, () => {
   // Inicia o servidor na porta definida
   connection.authenticate(); // Conecta ao banco de dados
-  connection.sync(); // Sincroniza o banco de dados
+  connection.sync({force: true, alter: true}); // Sincroniza o banco de dados
 
   const routes = new Routes(); // Cria uma instância das rotas
 

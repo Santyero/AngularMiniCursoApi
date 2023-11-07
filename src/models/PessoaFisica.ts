@@ -1,8 +1,14 @@
-import { DataTypes } from "sequelize";
+import { DataTypes, Model } from "sequelize";
 import connection from "../connection";
 import Pessoa from "./Pessoa";
 
-class PessoaFisica extends Pessoa {
+class PessoaFisica extends Model {
+    public id!: number;
+    public email!: string;
+    public telefone?: string;
+    public readonly created_at!: Date;
+    public readonly updated_at!: Date;
+    public readonly delete_at!: Date;
     public cpf!: string;
     public rg!: string;
     public nome!: string;
@@ -10,6 +16,18 @@ class PessoaFisica extends Pessoa {
 // Responsavel por inicializar o model e criar a tabela no banco de dados
 PessoaFisica.init(
     {   
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true,
+        },
+        telefone: {
+            type: DataTypes.STRING,
+        },
+        delete_at: {
+            type: DataTypes.DATE,
+            allowNull: true,
+        },
         nome: {
             type: DataTypes.STRING,
         },
@@ -30,5 +48,7 @@ PessoaFisica.init(
         underscored: true,
     }
 );
+
+// PessoaFisica.belongsTo(Pessoa);
 
 export default PessoaFisica;

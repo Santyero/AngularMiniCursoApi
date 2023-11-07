@@ -1,14 +1,13 @@
 import { DataTypes, Model, Sequelize } from "sequelize";
 import connection from "../connection";
-import { all } from "bluebird";
 
 class Pessoa extends Model {
     public id!: number;
     public email!: string;
     public telefone?: string;
-    public readonly createdAt!: Date;
-    public readonly updatedAt!: Date;
-    public readonly deletAt!: Date;
+    public readonly created_at!: Date;
+    public readonly updated_at!: Date;
+    public readonly delete_at!: Date;
 }
 Pessoa.init(
     {
@@ -20,15 +19,7 @@ Pessoa.init(
         telefone: {
             type: DataTypes.STRING,
         },
-        createdAt: {
-            type: DataTypes.DATE,
-            defaultValue: DataTypes.NOW,
-        },
-        updatedAt: {
-            type: DataTypes.DATE,
-            defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
-        },
-        deletAt: {
+        delete_at: {
             type: DataTypes.DATE,
             allowNull: true,
         },
