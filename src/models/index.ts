@@ -2,3 +2,4 @@
 import "./Pessoa"
 import "./PessoaFisica"; // Importa o model de PessoaFisica
 import "./PessoaJuridica"; // Importa o model de PessoaJuridica
+import "./Produto";
